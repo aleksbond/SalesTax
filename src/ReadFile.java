@@ -1,10 +1,7 @@
 
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -47,7 +44,11 @@ public class ReadFile {
             return false;
     }
 
-    private double getPrice(String purchase1) {
+    public double getPrice(String purchase) {
+        String words[] = purchase.split(" ");
+        List<String> wordList = Arrays.asList(words);
+        Collections.reverse(wordList);
+        return Double.parseDouble(wordList.get(0));
     }
 
 }
