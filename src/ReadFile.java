@@ -47,4 +47,7 @@ public class ReadFile {
             return false;
     }
 
+    private double getPrice(String purchase1) {
+    }
+
 }

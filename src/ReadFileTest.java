@@ -50,6 +50,11 @@ public class ReadFileTest extends ReadFile {
         assertThat(imported, is(true));
     }
 
+    @Test
+    public void testGetPrice() throws Exception{
+        double price = getPrice(PURCHASE1);
+        assertThat(price, is(12.49));
+    }
 
 
 }
