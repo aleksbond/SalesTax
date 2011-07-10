@@ -17,6 +17,7 @@
     <list default="true" id="99234e9f-b288-4ddf-b9b8-6e74b39e573e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CalculateTaxes.java" afterPath="$PROJECT_DIR$/src/CalculateTaxes.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CalculateTaxesTest.java" afterPath="$PROJECT_DIR$/src/CalculateTaxesTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Purchase.java" afterPath="$PROJECT_DIR$/src/Purchase.java" />
     </list>
     <ignored path="SalesTax.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,19 +76,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CalculateTaxes.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="CalculateTaxes.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/CalculateTaxes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="64" selection-start="591" selection-end="591" vertical-scroll-proportion="0.0">
+            <state line="10" column="88" selection-start="365" selection-end="365" vertical-scroll-proportion="0.36945814">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CalculateTaxesTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CalculateTaxesTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CalculateTaxesTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="10" selection-start="719" selection-end="719" vertical-scroll-proportion="0.70197046">
+            <state line="24" column="63" selection-start="905" selection-end="905" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,7 +130,7 @@
       <file leaf-file-name="Purchase.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Purchase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="17" selection-start="18" selection-end="18" vertical-scroll-proportion="0.0">
+            <state line="50" column="17" selection-start="1044" selection-end="1044" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -195,11 +196,11 @@
         <option value="$PROJECT_DIR$/src/ReadFile.java" />
         <option value="$PROJECT_DIR$/src/ReadFileTest.java" />
         <option value="$PROJECT_DIR$/src/ReadDataFromFileTest.java" />
-        <option value="$PROJECT_DIR$/src/Purchase.java" />
         <option value="$PROJECT_DIR$/src/PurchaseTest.java" />
         <option value="$PROJECT_DIR$/src/ReadDataFromFile.java" />
-        <option value="$PROJECT_DIR$/src/CalculateTaxes.java" />
+        <option value="$PROJECT_DIR$/src/Purchase.java" />
         <option value="$PROJECT_DIR$/src/CalculateTaxesTest.java" />
+        <option value="$PROJECT_DIR$/src/CalculateTaxes.java" />
       </list>
     </option>
   </component>
@@ -556,7 +557,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24946082" sideWeight="0.6720827" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32791728" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32791728" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -650,13 +651,6 @@
         <state line="3" column="37" selection-start="102" selection-end="139" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Purchase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="17" selection-start="18" selection-end="18" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/input/input1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="23" selection-start="36" selection-end="59" vertical-scroll-proportion="0.0" />
@@ -694,9 +688,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CalculateTaxes.java">
+    <entry file="file://$PROJECT_DIR$/src/Purchase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="64" selection-start="591" selection-end="591" vertical-scroll-proportion="0.0">
+        <state line="50" column="17" selection-start="1044" selection-end="1044" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -710,10 +704,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CalculateTaxesTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="10" selection-start="719" selection-end="719" vertical-scroll-proportion="0.70197046">
+        <state line="24" column="63" selection-start="905" selection-end="905" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CalculateTaxes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="88" selection-start="365" selection-end="365" vertical-scroll-proportion="0.36945814">
+          <folding />
         </state>
       </provider>
     </entry>

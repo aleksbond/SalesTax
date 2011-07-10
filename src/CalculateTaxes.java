@@ -1,5 +1,3 @@
-import java.text.DecimalFormat;
-
 public class CalculateTaxes {
 
     private static double SALES_TAX = .1;
@@ -10,15 +8,20 @@ public class CalculateTaxes {
 
 
     public double calculateOnlySalesTax(double price) {
-        int priceInPennies = (int)(price*HUNDRED);
-        int taxesInPennies = (int)(priceInPennies*SALES_TAX + ROUND_INT);
-        double taxes = ((double)taxesInPennies)/HUNDRED;
-        double roundedTaxes = Math.ceil(taxes/ROUNDING_DECIMAL)*ROUNDING_DECIMAL;
-        return Math.floor(roundedTaxes*HUNDRED)/HUNDRED;
+        return calculateFinalTaxes(price, SALES_TAX);
     }
+
     public double calculateOnlyImportedTax(double price) {
+        return calculateFinalTaxes(price, IMPORTED_TAX);
+    }
+
+    public double calculateSalesAndImportedTax(double price) {
+        return calculateFinalTaxes(price, SALES_TAX + IMPORTED_TAX);
+    }
+
+    private double calculateFinalTaxes(double price, double taxType) {
         int priceInPennies = (int)(price*HUNDRED);
-        int taxesInPennies = (int)(priceInPennies*IMPORTED_TAX + ROUND_INT);
+        int taxesInPennies = (int)(priceInPennies*taxType + ROUND_INT);
         double taxes = ((double)taxesInPennies)/HUNDRED;
         double roundedTaxes = Math.ceil(taxes/ROUNDING_DECIMAL)*ROUNDING_DECIMAL;
         return Math.floor(roundedTaxes*HUNDRED)/HUNDRED;

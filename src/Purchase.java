@@ -4,8 +4,8 @@ public class Purchase {
     boolean isTaxExempt;
     int itemAmount;
     double price;
-    double salesTax;
-    double importedTax;
+    double salesTax = 0.0;
+    double importedTax = 0.0;
 
     public Purchase(boolean isImported, boolean isTaxExempt, int itemAmount, double price){
         this.isImported = isImported;
@@ -46,5 +46,9 @@ public class Purchase {
 
     public void setImportedTax(double importedTax){
         this.importedTax = importedTax;
+    }
+
+    public double getTotalPriceAndTax(){
+        return (price + salesTax + importedTax);
     }
 }
