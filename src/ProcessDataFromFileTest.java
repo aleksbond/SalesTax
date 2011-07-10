@@ -8,7 +8,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 
-public class ReadDataFromFileTest extends ProcessDataFromFile {
+public class ProcessDataFromFileTest extends ProcessDataFromFile {
 
     private static String PURCHASE1 = "1 book at 12.49";
     private static String PURCHASE2 = "1 music CD at 14.99";

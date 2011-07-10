@@ -61,6 +61,20 @@ public class ProcessDataFromFile extends CalculateTaxes{
                 for(int lineItr = 0; lineItr < purchases.size(); lineItr++){
                     Purchase purchase = processPurchases(purchases, lineItr);
                     purchaseList.add(purchase);
+
+                    String words[] = purchases.get(lineItr).split(" ");
+                    List<String> wordList = Arrays.asList(words);
+                    wordList.set(wordList.size()-1, Double.toString(purchase.getTotalPriceAndTax()));
+                    StringBuilder buildString = new StringBuilder();
+                    for (String word : wordList)
+                    {
+                        buildString.append(word);
+                        buildString.append("\t");
+                    }
+
+                    File output = new File("output/output"+(lineItr + 1)+".txt");
+                    output.createNewFile();
+
                 }
 
             }

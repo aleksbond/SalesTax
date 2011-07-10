@@ -15,12 +15,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99234e9f-b288-4ddf-b9b8-6e74b39e573e" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ReadDataFromFile.java" afterPath="$PROJECT_DIR$/src/ProcessDataFromFile.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ReadDataFromFileTest.java" afterPath="$PROJECT_DIR$/src/ProcessDataFromFileTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CalculateTaxes.java" afterPath="$PROJECT_DIR$/src/CalculateTaxes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CalculateTaxesTest.java" afterPath="$PROJECT_DIR$/src/CalculateTaxesTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Purchase.java" afterPath="$PROJECT_DIR$/src/Purchase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ReadDataFromFileTest.java" afterPath="$PROJECT_DIR$/src/ReadDataFromFileTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProcessDataFromFile.java" afterPath="$PROJECT_DIR$/src/ProcessDataFromFile.java" />
     </list>
     <ignored path="SalesTax.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -102,7 +99,7 @@
       <file leaf-file-name="ProcessDataFromFile.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ProcessDataFromFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="70" selection-start="2772" selection-end="2772" vertical-scroll-proportion="0.77832514">
+            <state line="75" column="43" selection-start="2823" selection-end="2823" vertical-scroll-proportion="0.6674877">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -119,10 +116,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReadDataFromFileTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ReadDataFromFileTest.java">
+      <file leaf-file-name="ProcessDataFromFileTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ProcessDataFromFileTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="94" selection-start="2206" selection-end="2206" vertical-scroll-proportion="0.0">
+            <state line="10" column="22" selection-start="241" selection-end="241" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -204,6 +201,7 @@
         <option value="$PROJECT_DIR$/src/CalculateTaxes.java" />
         <option value="$PROJECT_DIR$/src/CalculateTaxesTest.java" />
         <option value="$PROJECT_DIR$/src/ReadDataFromFile.java" />
+        <option value="$PROJECT_DIR$/src/ProcessDataFromFileTest.java" />
         <option value="$PROJECT_DIR$/src/ProcessDataFromFile.java" />
       </list>
     </option>
@@ -346,14 +344,14 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CalculateTaxesTest">
-    <configuration default="false" name="ReadDataFromFileTest" type="JUnit" factoryName="JUnit" temporary="true">
+  <component name="RunManager" selected="JUnit.ProcessDataFromFileTest">
+    <configuration default="false" name="ProcessDataFromFileTest" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" />
       <module name="SalesTax" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ReadDataFromFileTest" />
+      <option name="MAIN_CLASS_NAME" value="ProcessDataFromFileTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
@@ -655,11 +653,6 @@
         <state line="3" column="37" selection-start="102" selection-end="139" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/input/input1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="23" selection-start="36" selection-end="59" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/input/input2.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="37" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0" />
@@ -679,6 +672,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/CalculateTaxesTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="5" selection-start="628" selection-end="628" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/input/input1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="23" selection-start="36" selection-end="59" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/PurchaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="60" selection-start="1006" selection-end="1006" vertical-scroll-proportion="0.0">
@@ -695,18 +702,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ReadDataFromFileTest.java">
+    <entry file="file://$PROJECT_DIR$/src/ProcessDataFromFileTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="94" selection-start="2206" selection-end="2206" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CalculateTaxesTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="5" selection-start="628" selection-end="628" vertical-scroll-proportion="0.0">
+        <state line="10" column="22" selection-start="241" selection-end="241" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -715,7 +713,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ProcessDataFromFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="70" selection-start="2772" selection-end="2772" vertical-scroll-proportion="0.77832514">
+        <state line="75" column="43" selection-start="2823" selection-end="2823" vertical-scroll-proportion="0.6674877">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
