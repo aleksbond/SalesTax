@@ -15,10 +15,6 @@ public class CalculateTaxes {
         return calculateFinalTaxes(price, IMPORTED_TAX);
     }
 
-    public double calculateSalesAndImportedTax(double price) {
-        return calculateFinalTaxes(price, SALES_TAX + IMPORTED_TAX);
-    }
-
     private double calculateFinalTaxes(double price, double taxType) {
         int priceInPennies = (int)(price*HUNDRED);
         int taxesInPennies = (int)(priceInPennies*taxType + ROUND_INT);

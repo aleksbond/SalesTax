@@ -5,9 +5,9 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ReadDataFromFile {
+public class ProcessDataFromFile extends CalculateTaxes{
 
-    public ReadDataFromFile(){};
+    public ProcessDataFromFile(){};
 
     public List<String> readLinesFromFile(String filename) throws IOException {
         FileInputStream inputFile = new FileInputStream(filename);
@@ -53,18 +53,33 @@ public class ReadDataFromFile {
     }
 
     public void loopThroughFiles() throws IOException {
-            List<Purchase> purchaseList = new ArrayList<Purchase>();
             File folder = new File("C:/Users/Thoughtworks/SalesTax/src/input");
             File[] inputFiles = folder.listFiles();
             for(int fileItr = 0; fileItr < inputFiles.length; fileItr++){
-                 List<String> purchases = readLinesFromFile(inputFiles[fileItr].getName());
+                List<Purchase> purchaseList = new ArrayList<Purchase>();
+                List<String> purchases = readLinesFromFile(inputFiles[fileItr].getName());
                 for(int lineItr = 0; lineItr < purchases.size(); lineItr++){
-                    Purchase purchase = new Purchase(isImported(purchases.get(lineItr)),isTaxExempt(purchases.get(lineItr))
-                            ,getNumberOfItems(purchases.get(lineItr)),getPrice(purchases.get(lineItr)));
-
+                    Purchase purchase = processPurchases(purchases, lineItr);
+                    purchaseList.add(purchase);
                 }
 
             }
         }
+
+    private Purchase processPurchases(List<String> purchases, int lineItr) {
+        Purchase purchase = new Purchase(isImported(purchases.get(lineItr)),isTaxExempt(purchases.get(lineItr))
+                ,getNumberOfItems(purchases.get(lineItr)),getPrice(purchases.get(lineItr)));
+        if(purchase.getIsImported()== true && purchase.getIsTaxExempt()==false){
+            purchase.setImportedTax(calculateOnlyImportedTax(purchase.getPrice()));
+            purchase.setSalesTax(calculateOnlySalesTax(purchase.getPrice()));
+        }
+        else if (purchase.getIsImported()== true && purchase.getIsTaxExempt()==true){
+            purchase.setImportedTax(calculateOnlyImportedTax(purchase.getPrice()));
+        }
+        else if (purchase.getIsImported()== false && purchase.getIsTaxExempt()==false){
+            purchase.setSalesTax(calculateOnlySalesTax(purchase.getPrice()));
+        }
+        return purchase;
+    }
 
 }

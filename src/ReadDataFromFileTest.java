@@ -8,7 +8,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
 
-public class ReadDataFromFileTest extends ReadDataFromFile {
+public class ReadDataFromFileTest extends ProcessDataFromFile {
 
     private static String PURCHASE1 = "1 book at 12.49";
     private static String PURCHASE2 = "1 music CD at 14.99";
@@ -58,7 +58,7 @@ public class ReadDataFromFileTest extends ReadDataFromFile {
 
     @Test
     public void testLoopThroughFiles() throws Exception{
-        ReadDataFromFile readFile = mock(ReadDataFromFile.class);
+        ProcessDataFromFile readFile = mock(ProcessDataFromFile.class);
         Purchase purchase = mock(Purchase.class);
         verify(readFile).readLinesFromFile("/Users/Thoughtworks/SalesTax/src/input/input1.txt");
 

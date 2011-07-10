@@ -1,3 +1,4 @@
+import java.rmi.server.ObjID;
 
 public class Purchase {
     boolean isImported;

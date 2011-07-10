@@ -18,11 +18,4 @@ public class CalculateTaxesTest extends CalculateTaxes{
         assertThat(calculateOnlyImportedTax(10.00), is(.5));
     }
 
-    @Test
-    public void testCalculateSalesAndImportedTax() throws Exception{
-        assertThat(calculateSalesAndImportedTax(47.50), is(7.15));
-        assertThat(calculateSalesAndImportedTax(27.99), is(4.2));
-        assertThat(calculateSalesAndImportedTax(10.00), is(1.50));
-    }
-
 }
