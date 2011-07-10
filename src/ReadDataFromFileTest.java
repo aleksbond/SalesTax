@@ -1,14 +1,14 @@
-import org.junit.Test;
 
-import java.util.Iterator;
+import org.junit.Test;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 
-
-public class ReadFileTest extends ReadFile {
+public class ReadDataFromFileTest extends ReadDataFromFile {
 
     private static String PURCHASE1 = "1 book at 12.49";
     private static String PURCHASE2 = "1 music CD at 14.99";
@@ -17,7 +17,7 @@ public class ReadFileTest extends ReadFile {
 
     @Test
     public void testReadLinesFromFile() throws Exception {
-        List<String> input1 = readLinesFromFile("/Users/Thoughtworks/SalesTax/src/input1.txt");
+        List<String> input1 = readLinesFromFile("/Users/Thoughtworks/SalesTax/src/input/input1.txt");
         String line1 = input1.get(0);
         String line2 = input1.get(1);
         String line3 = input1.get(2);
@@ -54,6 +54,14 @@ public class ReadFileTest extends ReadFile {
     public void testGetPrice() throws Exception{
         double price = getPrice(PURCHASE1);
         assertThat(price, is(12.49));
+    }
+
+    @Test
+    public void testLoopThroughFiles() throws Exception{
+        ReadDataFromFile readFile = mock(ReadDataFromFile.class);
+        Purchase purchase = mock(Purchase.class);
+        verify(readFile).readLinesFromFile("/Users/Thoughtworks/SalesTax/src/input/input1.txt");
+
     }
 
 

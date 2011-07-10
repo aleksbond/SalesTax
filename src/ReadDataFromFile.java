@@ -5,7 +5,9 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ReadFile {
+public class ReadDataFromFile {
+
+    public void ReadDataFromFile(){};
 
     public List<String> readLinesFromFile(String filename) throws IOException {
         FileInputStream inputFile = new FileInputStream(filename);
@@ -50,5 +52,14 @@ public class ReadFile {
         Collections.reverse(wordList);
         return Double.parseDouble(wordList.get(0));
     }
+
+    public void loopThroughFiles(){
+           File folder = new File("C:/Users/Thoughtworks/SalesTax/src/input");
+            File[] inputs = folder.listFiles();
+            int inputLength = inputs.length;
+            for(int itr = 0; itr < inputLength; itr++){
+
+            }
+        }
 
 }
