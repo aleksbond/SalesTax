@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class ReadDataFromFile {
 
-    public void ReadDataFromFile(){};
+    public ReadDataFromFile(){};
 
     public List<String> readLinesFromFile(String filename) throws IOException {
         FileInputStream inputFile = new FileInputStream(filename);
@@ -24,7 +24,6 @@ public class ReadDataFromFile {
         return inputLines;
     }
 
-    //This function courtesy of http://eric-mariacher.blogspot.com/2008/11/java-extracting-only-first-integer.html#links
     public int getNumberOfItems(String purchase){
         Matcher matcher = Pattern.compile("\\d+").matcher(purchase);
         matcher.find();
@@ -53,11 +52,16 @@ public class ReadDataFromFile {
         return Double.parseDouble(wordList.get(0));
     }
 
-    public void loopThroughFiles(){
-           File folder = new File("C:/Users/Thoughtworks/SalesTax/src/input");
-            File[] inputs = folder.listFiles();
-            int inputLength = inputs.length;
-            for(int itr = 0; itr < inputLength; itr++){
+    public void loopThroughFiles() throws IOException {
+            File folder = new File("C:/Users/Thoughtworks/SalesTax/src/input");
+            File[] inputFiles = folder.listFiles();
+            for(int fileItr = 0; fileItr < inputFiles.length; fileItr++){
+                 List<String> purchases = readLinesFromFile(inputFiles[fileItr].getName());
+                for(int lineItr = 0; lineItr < purchases.size(); lineItr++){
+                    Purchase purchase = new Purchase(isImported(purchases.get(lineItr)),isTaxExempt(purchases.get(lineItr))
+                            ,getNumberOfItems(purchases.get(lineItr)),getPrice(purchases.get(lineItr)));
+
+                }
 
             }
         }

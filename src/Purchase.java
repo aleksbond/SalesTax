@@ -4,15 +4,17 @@ public class Purchase {
     boolean isTaxExempt;
     int itemAmount;
     double price;
+    double salesTax;
+    double importedTax;
 
-    public void Purchase(boolean isImported, boolean isTaxExempt, int itemAmount, double price){
+    public Purchase(boolean isImported, boolean isTaxExempt, int itemAmount, double price){
         this.isImported = isImported;
         this.isTaxExempt = isTaxExempt;
         this.itemAmount = itemAmount;
         this.price = price;
     }
 
-    public void Purchase(){};
+    public Purchase(){}
 
     public boolean getIsImported(){
         return isImported;
@@ -28,5 +30,21 @@ public class Purchase {
 
     public double getPrice(){
         return price;
+    }
+
+    public double getSalesTax(){
+        return salesTax;
+    }
+
+    public double getImportedTax(){
+        return importedTax;
+    }
+
+    public void setSalesTax(double salesTax){
+        this.salesTax = salesTax;
+    }
+
+    public void setImportedTax(double importedTax){
+        this.importedTax = importedTax;
     }
 }
