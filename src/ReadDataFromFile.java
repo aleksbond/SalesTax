@@ -53,6 +53,7 @@ public class ReadDataFromFile {
     }
 
     public void loopThroughFiles() throws IOException {
+            List<Purchase> purchaseList = new ArrayList<Purchase>();
             File folder = new File("C:/Users/Thoughtworks/SalesTax/src/input");
             File[] inputFiles = folder.listFiles();
             for(int fileItr = 0; fileItr < inputFiles.length; fileItr++){
