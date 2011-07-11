@@ -58,22 +58,16 @@ public class ProcessDataFromFile extends CalculateTaxes{
         Writer output = null;
         output = new BufferedWriter(new FileWriter(outputFile));
             for(int fileItr = 0; fileItr < inputFiles.length; fileItr++){
-                //File outputFile = new File("output"+(fileItr + 1)+".txt");
-                //outputFile.createNewFile();
-                //Writer output = null;
-                //output = new BufferedWriter(new FileWriter(outputFile));
-                List<Purchase> purchaseList = new ArrayList<Purchase>();
                 List<String> purchases = readLinesFromFile(inputFiles[fileItr]);
                 int totalSalesTax = 0;
                 int total = 0;
                 for(int lineItr = 0; lineItr < purchases.size()-1; lineItr++){
                     Purchase purchase = processPurchases(purchases.get(lineItr));
-                    purchaseList.add(purchase);
+
                     totalSalesTax += (int)(purchase.getTotalTax()*100);
                     total += (int)(purchase.getTotalPriceAndTax()*100);
 
-                    writeFinalPurchaseToOutput(output, purchases, lineItr, purchase);
-
+                    writeFinalPurchaseToOutput(output, purchases.get(lineItr), purchase);
                 }
                 output.write("Sales Taxes: "+ (((double)totalSalesTax)/100.0) + "\n");
                 output.write("Total: "+(((double)total)/100.0)+"\n");
@@ -82,8 +76,8 @@ public class ProcessDataFromFile extends CalculateTaxes{
         output.close();
     }
 
-    private void writeFinalPurchaseToOutput(Writer output, List<String> purchases, int lineItr, Purchase purchase) throws IOException {
-        String words[] = purchases.get(lineItr).split(" ");
+    private void writeFinalPurchaseToOutput(Writer output, String purchaseLine, Purchase purchase) throws IOException {
+        String words[] = purchaseLine.split(" ");
         List<String> wordList = Arrays.asList(words);
         wordList.set(wordList.size()-1, Double.toString(purchase.getTotalPriceAndTax()));
         StringBuilder buildString = new StringBuilder();
@@ -108,12 +102,6 @@ public class ProcessDataFromFile extends CalculateTaxes{
             purchase.setSalesTax(calculateOnlySalesTax(purchase.getPrice()));
         }
         return purchase;
-    }
-
-    public double roundDoubleToTwoDecimalPlaces(double dbl){
-        int estimate = (int)(dbl*100.0);
-        double roundedDbl = ((double)estimate)/100.0;
-        return roundedDbl;
     }
 }
 
