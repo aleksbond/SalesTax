@@ -57,6 +57,8 @@ public class ProcessDataFromFile extends CalculateTaxes{
             for(int fileItr = 0; fileItr < inputFiles.length; fileItr++){
                 File outputFile = new File("output"+(fileItr + 1)+".txt");
                 outputFile.createNewFile();
+                Writer output = null;
+                output = new BufferedWriter(new FileWriter(outputFile));
                 List<Purchase> purchaseList = new ArrayList<Purchase>();
                 List<String> purchases = readLinesFromFile(inputFiles[fileItr]);
                 for(int lineItr = 0; lineItr < purchases.size()-1; lineItr++){
@@ -72,12 +74,10 @@ public class ProcessDataFromFile extends CalculateTaxes{
                         buildString.append(word);
                         buildString.append("\t");
                     }
-                    Writer output = null;
-                    output = new BufferedWriter(new FileWriter(outputFile));
-                    output.write(buildString.toString());
+                    output.write(buildString.toString()+"\n");
 
                 }
-
+                output.close();
             }
         }
 
