@@ -7,6 +7,9 @@ import java.util.regex.Pattern;
 
 public class ProcessDataFromFile extends CalculateTaxes{
 
+    private static String[] inputFiles = {"/Users/Thoughtworks/SalesTax/src/input1.txt","/Users/Thoughtworks/SalesTax/src/input2.txt"
+            ,"/Users/Thoughtworks/SalesTax/src/input3.txt"};
+
     public ProcessDataFromFile(){};
 
     public List<String> readLinesFromFile(String filename) throws IOException {
@@ -39,10 +42,7 @@ public class ProcessDataFromFile extends CalculateTaxes{
     }
 
     public boolean isImported(String purchase) {
-        if(purchase.contains("imported"))
-            return true;
-        else
-            return false;
+        return purchase.contains("imported");
     }
 
     public double getPrice(String purchase) {
@@ -53,13 +53,14 @@ public class ProcessDataFromFile extends CalculateTaxes{
     }
 
     public void loopThroughFiles() throws IOException {
-            File folder = new File("C:/Users/Thoughtworks/SalesTax/src/input");
-            File[] inputFiles = folder.listFiles();
+
             for(int fileItr = 0; fileItr < inputFiles.length; fileItr++){
+                File outputFile = new File("output"+(fileItr + 1)+".txt");
+                outputFile.createNewFile();
                 List<Purchase> purchaseList = new ArrayList<Purchase>();
-                List<String> purchases = readLinesFromFile(inputFiles[fileItr].getName());
-                for(int lineItr = 0; lineItr < purchases.size(); lineItr++){
-                    Purchase purchase = processPurchases(purchases, lineItr);
+                List<String> purchases = readLinesFromFile(inputFiles[fileItr]);
+                for(int lineItr = 0; lineItr < purchases.size()-1; lineItr++){
+                    Purchase purchase = processPurchases(purchases.get(lineItr));
                     purchaseList.add(purchase);
 
                     String words[] = purchases.get(lineItr).split(" ");
@@ -71,18 +72,18 @@ public class ProcessDataFromFile extends CalculateTaxes{
                         buildString.append(word);
                         buildString.append("\t");
                     }
-
-                    File output = new File("output/output"+(lineItr + 1)+".txt");
-                    output.createNewFile();
+                    Writer output = null;
+                    output = new BufferedWriter(new FileWriter(outputFile));
+                    output.write(buildString.toString());
 
                 }
 
             }
         }
 
-    private Purchase processPurchases(List<String> purchases, int lineItr) {
-        Purchase purchase = new Purchase(isImported(purchases.get(lineItr)),isTaxExempt(purchases.get(lineItr))
-                ,getNumberOfItems(purchases.get(lineItr)),getPrice(purchases.get(lineItr)));
+    private Purchase processPurchases(String purchaseOne) {
+        Purchase purchase = new Purchase(isImported(purchaseOne),isTaxExempt(purchaseOne)
+                ,getNumberOfItems(purchaseOne),getPrice(purchaseOne));
         if(purchase.getIsImported()== true && purchase.getIsTaxExempt()==false){
             purchase.setImportedTax(calculateOnlyImportedTax(purchase.getPrice()));
             purchase.setSalesTax(calculateOnlySalesTax(purchase.getPrice()));
@@ -97,3 +98,5 @@ public class ProcessDataFromFile extends CalculateTaxes{
     }
 
 }
+
+

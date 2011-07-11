@@ -17,7 +17,7 @@ public class ProcessDataFromFileTest extends ProcessDataFromFile {
 
     @Test
     public void testReadLinesFromFile() throws Exception {
-        List<String> input1 = readLinesFromFile("/Users/Thoughtworks/SalesTax/src/input/input1.txt");
+        List<String> input1 = readLinesFromFile("/Users/Thoughtworks/SalesTax/src/input1.txt");
         String line1 = input1.get(0);
         String line2 = input1.get(1);
         String line3 = input1.get(2);
@@ -60,7 +60,8 @@ public class ProcessDataFromFileTest extends ProcessDataFromFile {
     public void testLoopThroughFiles() throws Exception{
         ProcessDataFromFile readFile = mock(ProcessDataFromFile.class);
         Purchase purchase = mock(Purchase.class);
-        verify(readFile).readLinesFromFile("/Users/Thoughtworks/SalesTax/src/input/input1.txt");
+        loopThroughFiles();
+
 
     }
 
