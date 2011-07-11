@@ -19,10 +19,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/output2.txt" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/output3.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CalculateTaxes.java" afterPath="$PROJECT_DIR$/src/CalculateTaxes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CalculateTaxesTest.java" afterPath="$PROJECT_DIR$/src/CalculateTaxesTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ProcessDataFromFile.java" afterPath="$PROJECT_DIR$/src/ProcessDataFromFile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Purchase.java" afterPath="$PROJECT_DIR$/src/Purchase.java" />
     </list>
     <ignored path="SalesTax.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -101,10 +98,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProcessDataFromFile.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ProcessDataFromFile.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ProcessDataFromFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="75" selection-start="2908" selection-end="2908" vertical-scroll-proportion="0.51970446">
+            <state line="58" column="8" selection-start="1881" selection-end="1881" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,26 +120,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="output1.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/output1.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="output2.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/output2.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="output3.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/output3.txt">
+      <file leaf-file-name="output.txt" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/output.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -667,6 +646,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/CalculateTaxes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="67" selection-start="626" selection-end="626" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Purchase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="32" selection-start="1876" selection-end="1876" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PurchaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="60" selection-start="1006" selection-end="1006" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProcessDataFromFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="8" selection-start="1881" selection-end="1881" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ProcessDataFromFileTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="123" selection-start="1291" selection-end="1291" vertical-scroll-proportion="0.0">
@@ -683,56 +694,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CalculateTaxes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="67" selection-start="626" selection-end="626" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Purchase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="32" selection-start="1876" selection-end="1876" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output1.txt">
+    <entry file="file://$PROJECT_DIR$/output.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output3.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PurchaseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="60" selection-start="1006" selection-end="1006" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProcessDataFromFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="75" selection-start="2908" selection-end="2908" vertical-scroll-proportion="0.51970446">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

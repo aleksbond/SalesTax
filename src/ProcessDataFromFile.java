@@ -53,30 +53,34 @@ public class ProcessDataFromFile extends CalculateTaxes{
     }
 
     public void loopThroughFiles() throws IOException {
-
+        File outputFile = new File("output.txt");
+        outputFile.createNewFile();
+        Writer output = null;
+        output = new BufferedWriter(new FileWriter(outputFile));
             for(int fileItr = 0; fileItr < inputFiles.length; fileItr++){
-                File outputFile = new File("output"+(fileItr + 1)+".txt");
-                outputFile.createNewFile();
-                Writer output = null;
-                output = new BufferedWriter(new FileWriter(outputFile));
+                //File outputFile = new File("output"+(fileItr + 1)+".txt");
+                //outputFile.createNewFile();
+                //Writer output = null;
+                //output = new BufferedWriter(new FileWriter(outputFile));
                 List<Purchase> purchaseList = new ArrayList<Purchase>();
                 List<String> purchases = readLinesFromFile(inputFiles[fileItr]);
-                double totalSalesTax = 0.0;
-                double total = 0.0;
+                int totalSalesTax = 0;
+                int total = 0;
                 for(int lineItr = 0; lineItr < purchases.size()-1; lineItr++){
                     Purchase purchase = processPurchases(purchases.get(lineItr));
                     purchaseList.add(purchase);
-                    totalSalesTax += purchase.getTotalTax();
-                    total += purchase.getTotalPriceAndTax();
+                    totalSalesTax += (int)(purchase.getTotalTax()*100);
+                    total += (int)(purchase.getTotalPriceAndTax()*100);
 
                     writeFinalPurchaseToOutput(output, purchases, lineItr, purchase);
 
                 }
-                output.write("Sales Taxes: "+ roundDoubleToTwoDecimalPlaces(totalSalesTax) + "\n");
-                output.write("Total: "+roundDoubleToTwoDecimalPlaces(total));
-                output.close();
+                output.write("Sales Taxes: "+ (((double)totalSalesTax)/100.0) + "\n");
+                output.write("Total: "+(((double)total)/100.0)+"\n");
+                output.write("\n");
             }
-        }
+        output.close();
+    }
 
     private void writeFinalPurchaseToOutput(Writer output, List<String> purchases, int lineItr, Purchase purchase) throws IOException {
         String words[] = purchases.get(lineItr).split(" ");
