@@ -1,13 +1,18 @@
+package main;
+
+import java.math.BigDecimal;
 import java.rmi.server.ObjID;
 
 public class Purchase {
+    private static double ROUND_INT = .5;
+    private static double HUNDRED = 100.0;
+    private static double ROUNDING_DECIMAL = .05;
+
     boolean isImported;
     boolean isTaxExempt;
     int itemAmount;
     double price;
-    double salesTax = 0.0;
-    double importedTax = 0.0;
-    double salesAndImportedTaxes = 0.0;
+    double taxes = 0.0;
 
     public Purchase(boolean isImported, boolean isTaxExempt, int itemAmount, double price){
         this.isImported = isImported;
@@ -16,7 +21,8 @@ public class Purchase {
         this.price = price;
     }
 
-    public Purchase(){}
+    public Purchase(){
+    }
 
     public boolean getIsImported(){
         return isImported;
@@ -34,39 +40,24 @@ public class Purchase {
         return price;
     }
 
-    public double getSalesTax(){
-        return salesTax;
-    }
-
-    public double getImportedTax(){
-        return importedTax;
-    }
-
-    public void setSalesTax(double salesTax){
-        this.salesTax = salesTax;
-    }
-
-    public void setImportedTax(double importedTax){
-        this.importedTax = importedTax;
-    }
-
-    public void setSalesAndImportedTax(double salesAndImportedTaxes){
-            this.salesAndImportedTaxes =salesAndImportedTaxes;
-    }
-
-    public double getSalesAndImportedTax(){
-        return salesAndImportedTaxes;
-    }
-
-    public double getTotalTax(){
-       double totalTax = salesTax + importedTax + salesAndImportedTaxes;
-       return roundDoubleToTwoDecimalPlaces(totalTax);
+    public double getTaxes() {
+        return taxes;
     }
 
 
     public double getTotalPriceAndTax(){
-        double totalPrice = price + salesTax + importedTax + salesAndImportedTaxes;
+        BigDecimal priceBd, salesTaxBd, importedTaxBd, salesAndImportedTaxesBd;
+        priceBd = new BigDecimal(price);
+        double totalPrice = price + taxes;
         return roundDoubleToTwoDecimalPlaces(totalPrice);
+    }
+
+    public void calculateTaxes(double taxPercentage) {
+        int priceInPennies = (int)(price*HUNDRED);
+        int taxesInPennies = (int)(priceInPennies*taxPercentage + ROUND_INT);
+        double taxes = ((double)taxesInPennies)/HUNDRED;
+        double roundedTaxes = Math.ceil(taxes/ROUNDING_DECIMAL)*ROUNDING_DECIMAL;
+        this.taxes = roundedTaxes;
     }
 
     public double roundDoubleToTwoDecimalPlaces(double dbl){
