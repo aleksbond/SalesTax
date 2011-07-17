@@ -21,17 +21,6 @@ public class ProcessDataFromFileTest{
     ProcessDataFromFile processDataFromFile = new ProcessDataFromFile();
 
     @Test
-    public void testReadLinesFromFile() throws Exception {
-        List<String> input1 = processDataFromFile.readLinesFromFile("src/input/input1.txt");
-        String line1 = input1.get(0);
-        String line2 = input1.get(1);
-        String line3 = input1.get(2);
-        assertThat(line1.equals(PURCHASE1), is(true));
-        assertThat(line2.equals(PURCHASE2), is(true));
-        assertThat(line3.equals(PURCHASE3), is(true));
-    }
-
-    @Test
     public void testGetNumberOfItems() throws Exception {
        int numOfItem = processDataFromFile.getNumberOfItems(PURCHASE3);
        assertThat(numOfItem, is(1));
@@ -60,15 +49,4 @@ public class ProcessDataFromFileTest{
         double price = processDataFromFile.getPrice(PURCHASE1);
         assertThat(price, is(12.49));
     }
-
-//    @Test
-//    public void testLoopThroughFiles() throws Exception{
-//        ProcessDataFromFile readFile = mock(ProcessDataFromFile.class);
-//        Purchase purchase = mock(Purchase.class);
-//        processDataFromFile.loopThroughFiles();
-//
-//
-//    }
-
-
 }

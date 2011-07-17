@@ -12,20 +12,6 @@ public class ProcessDataFromFile {
 
     public ProcessDataFromFile(){};
 
-    public List<String> readLinesFromFile(String filename) throws IOException {
-        FileInputStream inputFile = new FileInputStream(filename);
-        BufferedReader inputData = new BufferedReader(new InputStreamReader(inputFile));
-        List<String> inputLines = new ArrayList<String>();
-        String line;
-
-        do {
-            line = inputData.readLine();
-            inputLines.add(line);
-        }while(line != null);
-
-        return inputLines;
-    }
-
     public int getNumberOfItems(String purchase){
         Matcher matcher = Pattern.compile("\\d+").matcher(purchase);
         matcher.find();
