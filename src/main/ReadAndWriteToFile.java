@@ -1,5 +1,7 @@
 package main;
 
+import com.sun.org.apache.xml.internal.serializer.OutputPropertyUtils;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,10 +23,29 @@ public class ReadAndWriteToFile {
         return inputLines;
     }
 
-    public void createOutputFile() throws IOException {
+    public File createOutputFile() throws IOException {
         File outputFile = new File("src/output/output.txt");
         if(outputFile.exists())
             outputFile.delete();
         outputFile.createNewFile();
+        return outputFile;
+    }
+
+    public void writeToOutputFile() throws IOException {
+        File outputFile = createOutputFile();
+        Writer output = new BufferedWriter(new FileWriter(outputFile));
+            for(int fileItr = 0; fileItr < inputFiles.length; fileItr++){
+                ProcessPurchases processPurchases = new ProcessPurchases();
+                List<String> purchases = readLinesFromFile(inputFiles[fileItr]);
+                processPurchases.generateListOfPurchases(purchases);
+                for(int lineItr = 0; lineItr < purchases.size(); lineItr++){
+                    output.write(processPurchases.finalPurchases.get(lineItr)+"\n");
+                }
+                processPurchases.calculateTotalTaxes();
+                processPurchases.calculateTotalCost();
+                output.write("Sales Taxes: "+ processPurchases.getTotalTax()+"\n");
+                output.write("Total: "+processPurchases.getTotalCost()+"\n\n");
+            }
+        output.close();
     }
 }

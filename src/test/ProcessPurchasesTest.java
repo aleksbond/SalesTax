@@ -50,6 +50,7 @@ public class ProcessPurchasesTest{
         assertThat(processPurchases.purchases.get(0).getPrice(), is(12.49));
         assertThat(processPurchases.purchases.get(1).getPrice(), is(14.99));
         assertThat(processPurchases.purchases.get(2).getPrice(), is(.85));
+        assertThat(processPurchases.purchases.size(), is(processPurchases.finalPurchases.size()));
     }
 
     @Test

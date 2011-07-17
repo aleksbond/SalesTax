@@ -10,6 +10,7 @@ import java.util.List;
 public class ProcessPurchases {
 
     public List<Purchase> purchases = new ArrayList<Purchase>();
+    public List<String> finalPurchases = new ArrayList<String>();
     private BigDecimal totalTax = new BigDecimal(0.0);
     private BigDecimal totalCost = new BigDecimal(0.0);
     private static int decimalPlaces = 2;
@@ -32,6 +33,7 @@ public class ProcessPurchases {
             Purchase purchase = new Purchase();
             purchase.determinePurchaseTax(purchasesFromFile.get(lineItr));
             purchases.add(purchase);
+            finalPurchases.add(getFinalPurchaseWithTaxesIncluded(purchasesFromFile.get(lineItr), purchase));
         }
     }
 
