@@ -33,7 +33,7 @@ public class ProcessDataFromFileTest{
 
     @Test
     public void testGetNumberOfItems() throws Exception {
-       int numOfItem = processDataFromFile.getNumberOfItems("1 chocolate bar at 0.85");
+       int numOfItem = processDataFromFile.getNumberOfItems(PURCHASE3);
        assertThat(numOfItem, is(1));
        numOfItem = processDataFromFile.getNumberOfItems("5 chocolate bar at 0.85");
        assertThat(numOfItem, is(5));

@@ -1,6 +1,7 @@
 package main;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.rmi.server.ObjID;
 
 public class Purchase {
@@ -19,11 +20,12 @@ public class Purchase {
     double taxes = 0.0;
     ProcessDataFromFile processDataFromFile = new ProcessDataFromFile();
 
-    public Purchase(boolean isImported, boolean isTaxExempt, int itemAmount, double price){
+    public Purchase(boolean isImported, boolean isTaxExempt, int itemAmount, double price, double taxes){
         this.isImported = isImported;
         this.isTaxExempt = isTaxExempt;
         this.itemAmount = itemAmount;
         this.price = price;
+        this.taxes = taxes;
     }
 
     public Purchase(){
@@ -49,12 +51,13 @@ public class Purchase {
         return roundDoubleToTwoDecimalPlaces(taxes);
     }
 
-
-    public double getTotalPriceAndTax(){
-        BigDecimal priceBd, salesTaxBd, importedTaxBd, salesAndImportedTaxesBd;
+    public BigDecimal getTotalPriceAndTax(){
+        BigDecimal priceBd, taxesBd;
         priceBd = new BigDecimal(price);
-        double totalPrice = price + taxes;
-        return roundDoubleToTwoDecimalPlaces(totalPrice);
+        taxesBd = new BigDecimal(taxes);
+        BigDecimal totalPrice = priceBd.add(taxesBd);
+        MathContext decimalPlaces = new MathContext(4);
+        return totalPrice.round(decimalPlaces);
     }
 
     public void calculateTaxes(double taxPercentage) {
@@ -86,6 +89,6 @@ public class Purchase {
             calculateTaxes(IMPORTED_TAX);
         else if (isImported== false && isTaxExempt==false)
             calculateTaxes(SALES_TAX);
-        return new Purchase();
+        return new Purchase(isImported,isTaxExempt,itemAmount,price,taxes);
     }
 }
