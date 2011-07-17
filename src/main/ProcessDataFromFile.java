@@ -5,7 +5,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ProcessDataFromFile{
+public class ProcessDataFromFile {
 
     private static String[] inputFiles = {"src/input/input1.txt","src/input/input2.txt"
             ,"src/input/input3.txt"};
@@ -91,20 +91,7 @@ public class ProcessDataFromFile{
 //        output.write(buildString.toString()+"\n");
 //    }
 //
-//    private Purchase processPurchases(String purchaseOne) {
-//        Purchase purchase = new Purchase(isImported(purchaseOne),isTaxExempt(purchaseOne)
-//                ,getNumberOfItems(purchaseOne),getPrice(purchaseOne));
-//        if(purchase.getIsImported()== true && purchase.getIsTaxExempt()==false){
-//            purchase.setSalesAndImportedTax(calculateSalesAndImportedTax(purchase.getPrice()));
-//        }
-//        else if (purchase.getIsImported()== true && purchase.getIsTaxExempt()==true){
-//            purchase.setImportedTax(calculateOnlyImportedTax(purchase.getPrice()));
-//        }
-//        else if (purchase.getIsImported()== false && purchase.getIsTaxExempt()==false){
-//            purchase.setSalesTax(calculateOnlySalesTax(purchase.getPrice()));
-//        }
-//        return purchase;
-//    }
+
 }
 
 

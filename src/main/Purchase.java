@@ -7,12 +7,17 @@ public class Purchase {
     private static double ROUND_INT = .5;
     private static double HUNDRED = 100.0;
     private static double ROUNDING_DECIMAL = .05;
+    private static double SALES_TAX = .1;
+    private static double IMPORTED_TAX = .05;
+    private static double SALES_IMPORTED_TAX = .15;
+
 
     boolean isImported;
     boolean isTaxExempt;
     int itemAmount;
     double price;
     double taxes = 0.0;
+    ProcessDataFromFile processDataFromFile = new ProcessDataFromFile();
 
     public Purchase(boolean isImported, boolean isTaxExempt, int itemAmount, double price){
         this.isImported = isImported;
@@ -41,7 +46,7 @@ public class Purchase {
     }
 
     public double getTaxes() {
-        return taxes;
+        return roundDoubleToTwoDecimalPlaces(taxes);
     }
 
 
@@ -64,5 +69,23 @@ public class Purchase {
         int estimate = (int)(dbl*100.0);
         double roundedDbl = ((double)estimate)/100.0;
         return roundedDbl;
+    }
+
+    public void setPurchaseValues(String purchaseString){
+       isImported = processDataFromFile.isImported(purchaseString);
+       isTaxExempt = processDataFromFile.isTaxExempt(purchaseString);
+       itemAmount = processDataFromFile.getNumberOfItems(purchaseString);
+       price = processDataFromFile.getPrice(purchaseString);
+    }
+
+    public Purchase determinePurchaseTax(String purchaseString) {
+        setPurchaseValues(purchaseString);
+        if(isImported== true && isTaxExempt==false)
+            calculateTaxes(SALES_IMPORTED_TAX);
+        else if (isImported== true && isTaxExempt==true)
+            calculateTaxes(IMPORTED_TAX);
+        else if (isImported== false && isTaxExempt==false)
+            calculateTaxes(SALES_TAX);
+        return new Purchase();
     }
 }
