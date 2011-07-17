@@ -11,6 +11,7 @@ public class Purchase {
     private static double SALES_TAX = .1;
     private static double IMPORTED_TAX = .05;
     private static double SALES_IMPORTED_TAX = .15;
+    private static int decimalPlaces = 2;
 
 
     boolean isImported;
@@ -56,8 +57,7 @@ public class Purchase {
         priceBd = new BigDecimal(price);
         taxesBd = new BigDecimal(taxes);
         BigDecimal totalPrice = priceBd.add(taxesBd);
-        MathContext decimalPlaces = new MathContext(4);
-        return totalPrice.round(decimalPlaces);
+        return totalPrice.setScale(decimalPlaces,totalPrice.ROUND_HALF_UP);
     }
 
     public void calculateTaxes(double taxPercentage) {

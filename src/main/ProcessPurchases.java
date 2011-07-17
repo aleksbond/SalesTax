@@ -2,6 +2,7 @@ package main;
 
 import java.io.*;
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,8 +10,9 @@ import java.util.List;
 public class ProcessPurchases {
 
     public List<Purchase> purchases = new ArrayList<Purchase>();
-    private double totalSalesTax;
-    private double totalCost;
+    private BigDecimal totalTax = new BigDecimal(0.0);
+    private BigDecimal totalCost = new BigDecimal(0.0);
+    private static int decimalPlaces = 2;
 
     public String getFinalPurchaseWithTaxesIncluded(String purchaseLine, Purchase purchase) {
         String words[] = purchaseLine.split(" ");
@@ -33,18 +35,23 @@ public class ProcessPurchases {
         }
     }
 
-    public void createOutputFile() throws IOException {
-        File outputFile = new File("src/output/output.txt");
-        if(outputFile.exists())
-            outputFile.delete();
-        outputFile.createNewFile();
-    }
-
-    public double getTotalCost() {
+    public BigDecimal getTotalCost() {
         return totalCost;
     }
 
-    public double getTotalSalesTax() {
-        return totalSalesTax;
+    public BigDecimal getTotalTax() {
+        return totalTax.setScale(decimalPlaces,totalTax.ROUND_HALF_UP);
+    }
+
+    public void calculateTotalTaxes() {
+        for(int itr = 0; itr < purchases.size(); itr++){
+            totalTax = totalTax.add(new BigDecimal(purchases.get(itr).getTaxes()));
+        }
+    }
+
+    public void calculateTotalCost() {
+        for(int itr = 0; itr < purchases.size(); itr++){
+            totalCost = totalCost.add(purchases.get(itr).getTotalPriceAndTax());
+        }
     }
 }

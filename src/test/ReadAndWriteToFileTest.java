@@ -3,10 +3,12 @@ package test;
 import main.ReadAndWriteToFile;
 import org.junit.Test;
 
+import java.io.File;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class ReadAndWriteToFileTest {
     private static String PURCHASE1 = "1 book at 12.49";
@@ -26,5 +28,12 @@ public class ReadAndWriteToFileTest {
         assertThat(line1.equals(PURCHASE1), is(true));
         assertThat(line2.equals(PURCHASE2), is(true));
         assertThat(line3.equals(PURCHASE3), is(true));
+    }
+
+    @Test
+    public void testWriteToOutputFile() throws Exception{
+        readAndWriteToFile.writeToOutputFile();
+        File outputFile = new File("src/output/output.txt");
+        assertTrue(outputFile.exists());
     }
 }

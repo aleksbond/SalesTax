@@ -28,6 +28,7 @@ public class PurchaseTest {
     private static String PURCHASE4 = "1 box of imported chocolates at 11.25";
     private static String PURCHASE5 = "1 imported bottle of perfume at 47.50";
     private static String PURCHASE6 = "1 bottle of perfume at 18.99";
+    private static int decimalPlaces = 2;
 
 
     @Test
@@ -111,13 +112,12 @@ public class PurchaseTest {
         purchase5 = purchase5.determinePurchaseTax(PURCHASE5);
         Purchase purchase6 = new Purchase();
         purchase6 = purchase6.determinePurchaseTax(PURCHASE6);
-        MathContext decimalPlaces = new MathContext(4);
-        assertThat(purchase1.getTotalPriceAndTax(), is(new BigDecimal(12.49).round(decimalPlaces)));
-        assertThat(purchase2.getTotalPriceAndTax(), is(new BigDecimal(16.49).round(decimalPlaces)));
-        assertThat(purchase3.getTotalPriceAndTax(), is(new BigDecimal(.85).round(decimalPlaces)));
-        assertThat(purchase4.getTotalPriceAndTax(), is(new BigDecimal(11.85).round(decimalPlaces)));
-        assertThat(purchase5.getTotalPriceAndTax(), is(new BigDecimal(54.65).round(decimalPlaces)));
-        assertThat(purchase6.getTotalPriceAndTax(), is(new BigDecimal(20.89).round(decimalPlaces)));
+        assertThat(purchase1.getTotalPriceAndTax(), is(new BigDecimal(12.49).setScale(decimalPlaces,BigDecimal.ROUND_HALF_UP)));
+        assertThat(purchase2.getTotalPriceAndTax(), is(new BigDecimal(16.49).setScale(decimalPlaces,BigDecimal.ROUND_HALF_UP)));
+        assertThat(purchase3.getTotalPriceAndTax(), is(new BigDecimal(.85).setScale(decimalPlaces,BigDecimal.ROUND_HALF_UP)));
+        assertThat(purchase4.getTotalPriceAndTax(), is(new BigDecimal(11.85).setScale(decimalPlaces,BigDecimal.ROUND_HALF_UP)));
+        assertThat(purchase5.getTotalPriceAndTax(), is(new BigDecimal(54.65).setScale(decimalPlaces,BigDecimal.ROUND_HALF_UP)));
+        assertThat(purchase6.getTotalPriceAndTax(), is(new BigDecimal(20.89).setScale(decimalPlaces,BigDecimal.ROUND_HALF_UP)));
     }
 
 
