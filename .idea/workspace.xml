@@ -15,12 +15,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99234e9f-b288-4ddf-b9b8-6e74b39e573e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/ProcessPurchases.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/ProcessPurchasesTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ProcessDataFromFile.java" afterPath="$PROJECT_DIR$/src/main/ProcessDataFromFile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Purchase.java" afterPath="$PROJECT_DIR$/src/main/Purchase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/ProcessDataFromFileTest.java" afterPath="$PROJECT_DIR$/src/test/ProcessDataFromFileTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/PurchaseTest.java" afterPath="$PROJECT_DIR$/src/test/PurchaseTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ProcessPurchases.java" afterPath="$PROJECT_DIR$/src/main/ProcessPurchases.java" />
     </list>
     <ignored path="SalesTax.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -82,7 +80,7 @@
       <file leaf-file-name="ProcessDataFromFile.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/ProcessDataFromFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="39" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0">
+            <state line="77" column="40" selection-start="1690" selection-end="2858" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -100,17 +98,30 @@
       <file leaf-file-name="Purchase.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Purchase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="40" selection-start="1950" selection-end="1950" vertical-scroll-proportion="0.0">
+            <state line="10" column="101" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProcessPurchases.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ProcessPurchases.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/ProcessPurchases.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="14" selection-end="14" vertical-scroll-proportion="0.03649635">
-              <folding />
+            <state line="11" column="64" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProcessPurchasesTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/ProcessPurchasesTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="119" selection-start="1277" selection-end="1277" vertical-scroll-proportion="0.4160584">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -118,7 +129,7 @@
       <file leaf-file-name="PurchaseTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/PurchaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="109" column="61" selection-start="4894" selection-end="4894" vertical-scroll-proportion="0.0">
+            <state line="23" column="70" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -147,7 +158,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/ReadDataFromFile.java" />
         <option value="$PROJECT_DIR$/src/input1.txt" />
         <option value="$PROJECT_DIR$/src/ProcessDataFromFileTest.java" />
         <option value="$PROJECT_DIR$/src/CalculateTaxesTest.java" />
@@ -159,10 +169,11 @@
         <option value="$PROJECT_DIR$/src/output/output.txt" />
         <option value="$PROJECT_DIR$/output.txt" />
         <option value="$PROJECT_DIR$/src/test/ProcessDataFromFileTest.java" />
-        <option value="$PROJECT_DIR$/src/main/ProcessDataFromFile.java" />
         <option value="$PROJECT_DIR$/src/test/PurchaseTest.java" />
         <option value="$PROJECT_DIR$/src/main/Purchase.java" />
+        <option value="$PROJECT_DIR$/src/main/ProcessDataFromFile.java" />
         <option value="$PROJECT_DIR$/src/main/ProcessPurchases.java" />
+        <option value="$PROJECT_DIR$/src/test/ProcessPurchasesTest.java" />
       </list>
     </option>
   </component>
@@ -337,10 +348,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="test" />
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PurchaseTest">
+  <component name="RunManager" selected="JUnit.ProcessPurchasesTest">
     <configuration default="false" name="ProcessDataFromFileTest" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" />
       <module name="SalesTax" />
@@ -444,6 +456,34 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
+    <configuration default="false" name="ProcessPurchasesTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="SalesTax" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.ProcessPurchasesTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -533,11 +573,12 @@
         <option name="PhingTarget" enabled="false" />
       </method>
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.ProcessDataFromFileTest" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.PurchaseTest" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.CalculateTaxesTest" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.test in SalesTax" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.ProcessPurchasesTest" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -573,7 +614,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="801" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -699,9 +740,9 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/ProcessDataFromFileTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/Purchase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="88" selection-start="994" selection-end="994" vertical-scroll-proportion="0.0">
+        <state line="10" column="101" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -715,29 +756,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/PurchaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="61" selection-start="4894" selection-end="4894" vertical-scroll-proportion="0.0">
+        <state line="23" column="70" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/ProcessDataFromFileTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="88" selection-start="994" selection-end="994" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ProcessDataFromFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="39" selection-start="634" selection-end="634" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Purchase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="40" selection-start="1950" selection-end="1950" vertical-scroll-proportion="0.0">
+        <state line="77" column="40" selection-start="1690" selection-end="2858" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ProcessPurchases.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="14" selection-end="14" vertical-scroll-proportion="0.03649635">
-          <folding />
+        <state line="11" column="64" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/ProcessPurchasesTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="119" selection-start="1277" selection-end="1277" vertical-scroll-proportion="0.4160584">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

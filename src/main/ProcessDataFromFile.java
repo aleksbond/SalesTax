@@ -76,21 +76,6 @@ public class ProcessDataFromFile {
 //            }
 //        output.close();
 //    }
-//
-//    private void writeFinalPurchaseToOutput(Writer output, String purchaseLine, Purchase purchase) throws IOException {
-//        String words[] = purchaseLine.split(" ");
-//        List<String> wordList = Arrays.asList(words);
-//        wordList.set(wordList.size()-1, Double.toString(purchase.getTotalPriceAndTax()));
-//        StringBuilder buildString = new StringBuilder();
-//        for (String word : wordList)
-//        {
-//            buildString.append(word);
-//            buildString.append("\t");
-//        }
-//        output.write(buildString.toString()+"\n");
-//    }
-//
-
 }
 
 
