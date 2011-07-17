@@ -30,17 +30,6 @@ public class ProcessPurchasesTest{
     ProcessPurchases processPurchases = new ProcessPurchases();
 
     @Test
-    public void testReadLinesFromFile() throws Exception {
-        List<String> input1 = processPurchases.readLinesFromFile("src/input/input1.txt");
-        String line1 = input1.get(0);
-        String line2 = input1.get(1);
-        String line3 = input1.get(2);
-        assertThat(line1.equals(PURCHASE1), is(true));
-        assertThat(line2.equals(PURCHASE2), is(true));
-        assertThat(line3.equals(PURCHASE3), is(true));
-    }
-
-    @Test
     public void testShouldOutputPurchaseWithTotalPriceAndTaxes()throws Exception{
         Purchase purchase = new Purchase();
         purchase.determinePurchaseTax(PURCHASE6);
@@ -55,9 +44,14 @@ public class ProcessPurchasesTest{
         purchasesFromFile.add(PURCHASE2);
         purchasesFromFile.add(PURCHASE3);
         ProcessPurchases processPurchases = new ProcessPurchases();
-        List<Purchase> purchases= processPurchases.generateListOfPurchases(purchasesFromFile);
-        assertThat(purchases.get(0).getPrice(), is(12.49));
-        assertThat(purchases.get(1).getPrice(), is(14.99));
-        assertThat(purchases.get(2).getPrice(), is(.85));
+        processPurchases.generateListOfPurchases(purchasesFromFile);
+        assertThat(processPurchases.purchases.get(0).getPrice(), is(12.49));
+        assertThat(processPurchases.purchases.get(1).getPrice(), is(14.99));
+        assertThat(processPurchases.purchases.get(2).getPrice(), is(.85));
+    }
+
+    @Test
+    public void testShouldCalculateTotalTaxes() throws Exception{
+
     }
 }
