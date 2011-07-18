@@ -7,6 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadAndWriteToFile {
+
+    private ProcessPurchasesFactory processPurchasesFactory;
+
+    public ReadAndWriteToFile(ProcessPurchasesFactory processPurchasesFactory){
+        this.processPurchasesFactory = processPurchasesFactory;
+    }
+
+
     private static String[] inputFiles = {"src/input/input1.txt","src/input/input2.txt","src/input/input3.txt"};
 
     public List<String> readLinesFromFile(String filename) throws IOException {
@@ -36,7 +44,7 @@ public class ReadAndWriteToFile {
         Writer output = new BufferedWriter(new FileWriter(outputFile));
             for(int fileItr = 0; fileItr < inputFiles.length; fileItr++){
                 List<String> purchases = readLinesFromFile(inputFiles[fileItr]);
-                ProcessPurchases processPurchases = new ProcessPurchases();
+                ProcessPurchases processPurchases = processPurchasesFactory.getProcessPurchases();
                 processPurchases.writePurchasesToFile(output, purchases);
             }
         output.close();

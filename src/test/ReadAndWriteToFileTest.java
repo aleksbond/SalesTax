@@ -1,14 +1,24 @@
 package test;
 
+import main.ProcessPurchases;
+import main.ProcessPurchasesFactory;
 import main.ReadAndWriteToFile;
+import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Matchers;
+import org.mockito.Mock;
 
 import java.io.File;
+import java.io.Writer;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.atLeast;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.mockito.MockitoAnnotations.initMocks;
 
 public class ReadAndWriteToFileTest {
     private static String PURCHASE1 = "1 book at 12.49";
@@ -17,7 +27,19 @@ public class ReadAndWriteToFileTest {
     private static String PURCHASE4 = "1 box of imported chocolates at 11.25";
     private static String PURCHASE5 = "1 imported bottle of perfume at 47.50";
     private static String PURCHASE6 = "1 bottle of perfume at 18.99";
-    ReadAndWriteToFile readAndWriteToFile = new ReadAndWriteToFile();
+    ReadAndWriteToFile readAndWriteToFile;
+
+    @Mock
+    private ProcessPurchases processPurchases;
+
+    @Mock
+    private ProcessPurchasesFactory processPurchasesFactory;
+
+    @Before
+    public void setUp(){
+        initMocks(this);
+        readAndWriteToFile = new ReadAndWriteToFile(processPurchasesFactory);
+    }
 
     @Test
     public void testReadLinesFromFile() throws Exception {
@@ -32,8 +54,8 @@ public class ReadAndWriteToFileTest {
 
     @Test
     public void testWriteToOutputFile() throws Exception{
+        when(processPurchasesFactory.getProcessPurchases()).thenReturn(processPurchases);
         readAndWriteToFile.writeToOutputFile();
-        File outputFile = new File("src/output/output.txt");
-        assertTrue(outputFile.exists());
+        verify(processPurchases, atLeast(3)).writePurchasesToFile(Matchers.<Writer>any(), Matchers.<List<String>>any());
     }
 }
