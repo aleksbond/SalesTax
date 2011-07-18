@@ -4,10 +4,11 @@ import main.ProcessPurchases;
 import main.Purchase;
 import org.junit.Test;
 
-import java.io.IOException;
+import java.io.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.Object.*;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -85,5 +86,22 @@ public class ProcessPurchasesTest{
         processPurchases.generateListOfPurchases(purchasesFromFile);
         processPurchases.calculateTotalCost();
         assertThat(processPurchases.getTotalCost(), is(new BigDecimal(29.83).setScale(decimalPlaces,BigDecimal.ROUND_HALF_UP)));
+    }
+
+    @Test
+    public void testShouldWritePurchasesToFile()throws Exception{
+        List<String> purchasesFromFile = new ArrayList<String>();
+        purchasesFromFile.add(PURCHASE1);
+        purchasesFromFile.add(PURCHASE2);
+        purchasesFromFile.add(PURCHASE3);
+        ProcessPurchases processPurchases = new ProcessPurchases();
+        File outputFile = new File("src/output/outputTest.txt");
+        if(outputFile.exists())
+            outputFile.delete();
+        outputFile.createNewFile();
+        Writer output = new BufferedWriter(new FileWriter(outputFile));
+        processPurchases.writePurchasesToFile(output,purchasesFromFile);
+        output.close();
+        assertTrue(outputFile.length()> 0);
     }
 }

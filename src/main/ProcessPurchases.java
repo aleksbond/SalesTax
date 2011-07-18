@@ -38,7 +38,7 @@ public class ProcessPurchases {
     }
 
     public BigDecimal getTotalCost() {
-        return totalCost;
+        return totalCost.setScale(decimalPlaces,totalCost.ROUND_HALF_UP);
     }
 
     public BigDecimal getTotalTax() {
@@ -55,5 +55,16 @@ public class ProcessPurchases {
         for(int itr = 0; itr < purchases.size(); itr++){
             totalCost = totalCost.add(purchases.get(itr).getTotalPriceAndTax());
         }
+    }
+
+    public void writePurchasesToFile(Writer output, List<String> purchases) throws IOException {
+        generateListOfPurchases(purchases);
+        for(int lineItr = 0; lineItr < purchases.size(); lineItr++){
+            output.write(finalPurchases.get(lineItr)+"\n");
+        }
+        calculateTotalTaxes();
+        calculateTotalCost();
+        output.write("Sales Taxes: "+ getTotalTax()+"\n");
+        output.write("Total: "+getTotalCost()+"\n\n");
     }
 }

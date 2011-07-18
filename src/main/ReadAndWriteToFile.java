@@ -35,16 +35,9 @@ public class ReadAndWriteToFile {
         File outputFile = createOutputFile();
         Writer output = new BufferedWriter(new FileWriter(outputFile));
             for(int fileItr = 0; fileItr < inputFiles.length; fileItr++){
-                ProcessPurchases processPurchases = new ProcessPurchases();
                 List<String> purchases = readLinesFromFile(inputFiles[fileItr]);
-                processPurchases.generateListOfPurchases(purchases);
-                for(int lineItr = 0; lineItr < purchases.size(); lineItr++){
-                    output.write(processPurchases.finalPurchases.get(lineItr)+"\n");
-                }
-                processPurchases.calculateTotalTaxes();
-                processPurchases.calculateTotalCost();
-                output.write("Sales Taxes: "+ processPurchases.getTotalTax()+"\n");
-                output.write("Total: "+processPurchases.getTotalCost()+"\n\n");
+                ProcessPurchases processPurchases = new ProcessPurchases();
+                processPurchases.writePurchasesToFile(output, purchases);
             }
         output.close();
     }
