@@ -2,23 +2,22 @@ package main;
 
 import java.io.*;
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ProcessPurchases {
+public class Basket {
 
-    public List<Purchase> purchases = new ArrayList<Purchase>();
+    public List<Item> items = new ArrayList<Item>();
     public List<String> finalPurchases = new ArrayList<String>();
     private BigDecimal totalTax = new BigDecimal(0.0);
     private BigDecimal totalCost = new BigDecimal(0.0);
     private static int decimalPlaces = 2;
 
-    public String getFinalPurchaseWithTaxesIncluded(String purchaseLine, Purchase purchase) {
+    public String getFinalPurchaseWithTaxesIncluded(String purchaseLine, Item item) {
         String words[] = purchaseLine.split(" ");
         List<String> wordList = Arrays.asList(words);
-        wordList.set(wordList.size() - 1, purchase.getTotalPriceAndTax().toString());
+        wordList.set(wordList.size() - 1, item.getTotalPriceAndTax().toString());
         StringBuilder buildString = new StringBuilder();
         for (String word : wordList)
         {
@@ -30,10 +29,10 @@ public class ProcessPurchases {
 
     public void generateListOfPurchases(List<String> purchasesFromFile) throws IOException {
         for(int lineItr = 0; lineItr < purchasesFromFile.size(); lineItr++){
-            Purchase purchase = new Purchase();
-            purchase.determinePurchaseTax(purchasesFromFile.get(lineItr));
-            purchases.add(purchase);
-            finalPurchases.add(getFinalPurchaseWithTaxesIncluded(purchasesFromFile.get(lineItr), purchase));
+            Item item = new Item();
+            item.determinePurchaseTax(purchasesFromFile.get(lineItr));
+            items.add(item);
+            finalPurchases.add(getFinalPurchaseWithTaxesIncluded(purchasesFromFile.get(lineItr), item));
         }
     }
 
@@ -46,14 +45,14 @@ public class ProcessPurchases {
     }
 
     public void calculateTotalTaxes() {
-        for(int itr = 0; itr < purchases.size(); itr++){
-            totalTax = totalTax.add(new BigDecimal(purchases.get(itr).getTaxes()));
+        for(int itr = 0; itr < items.size(); itr++){
+            totalTax = totalTax.add(new BigDecimal(items.get(itr).getTaxes()));
         }
     }
 
     public void calculateTotalCost() {
-        for(int itr = 0; itr < purchases.size(); itr++){
-            totalCost = totalCost.add(purchases.get(itr).getTotalPriceAndTax());
+        for(int itr = 0; itr < items.size(); itr++){
+            totalCost = totalCost.add(items.get(itr).getTotalPriceAndTax());
         }
     }
 

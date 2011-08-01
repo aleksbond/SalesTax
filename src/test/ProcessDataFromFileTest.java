@@ -1,9 +1,7 @@
 package test;
 
 import main.ProcessDataFromFile;
-import main.Purchase;
 import org.junit.Test;
-import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

@@ -1,14 +1,13 @@
 package test;
 
-import main.ProcessPurchases;
-import main.ProcessPurchasesFactory;
+import main.Basket;
+import main.BasketFactory;
 import main.ReadAndWriteToFile;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Matchers;
 import org.mockito.Mock;
 
-import java.io.File;
 import java.io.Writer;
 import java.util.List;
 
@@ -30,15 +29,15 @@ public class ReadAndWriteToFileTest {
     ReadAndWriteToFile readAndWriteToFile;
 
     @Mock
-    private ProcessPurchases processPurchases;
+    private Basket basket;
 
     @Mock
-    private ProcessPurchasesFactory processPurchasesFactory;
+    private BasketFactory basketFactory;
 
     @Before
     public void setUp(){
         initMocks(this);
-        readAndWriteToFile = new ReadAndWriteToFile(processPurchasesFactory);
+        readAndWriteToFile = new ReadAndWriteToFile(basketFactory);
     }
 
     @Test
@@ -54,8 +53,8 @@ public class ReadAndWriteToFileTest {
 
     @Test
     public void testWriteToOutputFile() throws Exception{
-        when(processPurchasesFactory.getProcessPurchases()).thenReturn(processPurchases);
+        when(basketFactory.getProcessPurchases()).thenReturn(basket);
         readAndWriteToFile.writeToOutputFile();
-        verify(processPurchases, atLeast(3)).writePurchasesToFile(Matchers.<Writer>any(), Matchers.<List<String>>any());
+        verify(basket, atLeast(3)).writePurchasesToFile(Matchers.<Writer>any(), Matchers.<List<String>>any());
     }
 }

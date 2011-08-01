@@ -1,16 +1,14 @@
 package main;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
-import java.rmi.server.ObjID;
 
-public class Purchase {
+public class Item {
     private static double ROUND_INT = .5;
     private static double HUNDRED = 100.0;
     private static double ROUNDING_DECIMAL = .05;
     private static double SALES_TAX = .1;
-    private static double IMPORTED_TAX = .05;
-    private static double SALES_IMPORTED_TAX = .15;
+    private static double IMPORT_DUTY = .05;
+    private static double SALES_IMPORT_TAX = .15;
     private static int decimalPlaces = 2;
 
 
@@ -21,7 +19,7 @@ public class Purchase {
     double taxes = 0.0;
     ProcessDataFromFile processDataFromFile = new ProcessDataFromFile();
 
-    public Purchase(boolean isImported, boolean isTaxExempt, int itemAmount, double price, double taxes){
+    public Item(boolean isImported, boolean isTaxExempt, int itemAmount, double price, double taxes){
         this.isImported = isImported;
         this.isTaxExempt = isTaxExempt;
         this.itemAmount = itemAmount;
@@ -29,7 +27,7 @@ public class Purchase {
         this.taxes = taxes;
     }
 
-    public Purchase(){
+    public Item(){
     }
 
     public boolean getIsImported(){
@@ -81,14 +79,14 @@ public class Purchase {
        price = processDataFromFile.getPrice(purchaseString);
     }
 
-    public Purchase determinePurchaseTax(String purchaseString) {
+    public Item determinePurchaseTax(String purchaseString) {
         setPurchaseValues(purchaseString);
         if(isImported== true && isTaxExempt==false)
-            calculateTaxes(SALES_IMPORTED_TAX);
+            calculateTaxes(SALES_IMPORT_TAX);
         else if (isImported== true && isTaxExempt==true)
-            calculateTaxes(IMPORTED_TAX);
+            calculateTaxes(IMPORT_DUTY);
         else if (isImported== false && isTaxExempt==false)
             calculateTaxes(SALES_TAX);
-        return new Purchase(isImported,isTaxExempt,itemAmount,price,taxes);
+        return new Item(isImported,isTaxExempt,itemAmount,price,taxes);
     }
 }

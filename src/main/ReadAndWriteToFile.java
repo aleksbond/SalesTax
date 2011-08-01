@@ -1,17 +1,15 @@
 package main;
 
-import com.sun.org.apache.xml.internal.serializer.OutputPropertyUtils;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReadAndWriteToFile {
 
-    private ProcessPurchasesFactory processPurchasesFactory;
+    private BasketFactory basketFactory;
 
-    public ReadAndWriteToFile(ProcessPurchasesFactory processPurchasesFactory){
-        this.processPurchasesFactory = processPurchasesFactory;
+    public ReadAndWriteToFile(BasketFactory basketFactory){
+        this.basketFactory = basketFactory;
     }
 
 
@@ -44,8 +42,8 @@ public class ReadAndWriteToFile {
         Writer output = new BufferedWriter(new FileWriter(outputFile));
             for(int fileItr = 0; fileItr < inputFiles.length; fileItr++){
                 List<String> purchases = readLinesFromFile(inputFiles[fileItr]);
-                ProcessPurchases processPurchases = processPurchasesFactory.getProcessPurchases();
-                processPurchases.writePurchasesToFile(output, purchases);
+                Basket basket = basketFactory.getProcessPurchases();
+                basket.writePurchasesToFile(output, purchases);
             }
         output.close();
     }

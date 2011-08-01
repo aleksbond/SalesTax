@@ -1,14 +1,13 @@
 package test;
 
-import main.ProcessPurchases;
-import main.Purchase;
+import main.Basket;
+import main.Item;
 import org.junit.Test;
 
 import java.io.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.lang.Object.*;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -16,7 +15,7 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-public class ProcessPurchasesTest{
+public class BasketTest {
 
     private static String PURCHASE1 = "1 book at 12.49";
     private static String PURCHASE2 = "1 music CD at 14.99";
@@ -30,13 +29,13 @@ public class ProcessPurchasesTest{
     private static String PURCHASE9 = "1 packet of headache pills: 9.75";
     private static String PURCHASE10 = "1 imported box of chocolates: 11.25";
     private static int decimalPlaces = 2;
-    ProcessPurchases processPurchases = new ProcessPurchases();
+    Basket basket = new Basket();
 
     @Test
     public void testShouldOutputPurchaseWithTotalPriceAndTaxes()throws Exception{
-        Purchase purchase = new Purchase();
-        purchase.determinePurchaseTax(PURCHASE6);
-        String finalPurchase = processPurchases.getFinalPurchaseWithTaxesIncluded(PURCHASE6, purchase);
+        Item item = new Item();
+        item.determinePurchaseTax(PURCHASE6);
+        String finalPurchase = basket.getFinalPurchaseWithTaxesIncluded(PURCHASE6, item);
         assertTrue(finalPurchase.contains("1 bottle of perfume at 20.89"));
     }
 
@@ -46,12 +45,12 @@ public class ProcessPurchasesTest{
         purchasesFromFile.add(PURCHASE1);
         purchasesFromFile.add(PURCHASE2);
         purchasesFromFile.add(PURCHASE3);
-        ProcessPurchases processPurchases = new ProcessPurchases();
-        processPurchases.generateListOfPurchases(purchasesFromFile);
-        assertThat(processPurchases.purchases.get(0).getPrice(), is(12.49));
-        assertThat(processPurchases.purchases.get(1).getPrice(), is(14.99));
-        assertThat(processPurchases.purchases.get(2).getPrice(), is(.85));
-        assertThat(processPurchases.purchases.size(), is(processPurchases.finalPurchases.size()));
+        Basket basket = new Basket();
+        basket.generateListOfPurchases(purchasesFromFile);
+        assertThat(basket.items.get(0).getPrice(), is(12.49));
+        assertThat(basket.items.get(1).getPrice(), is(14.99));
+        assertThat(basket.items.get(2).getPrice(), is(.85));
+        assertThat(basket.items.size(), is(basket.finalPurchases.size()));
     }
 
     @Test
@@ -60,20 +59,20 @@ public class ProcessPurchasesTest{
         purchasesFromFile.add(PURCHASE1);
         purchasesFromFile.add(PURCHASE2);
         purchasesFromFile.add(PURCHASE3);
-        ProcessPurchases processPurchases = new ProcessPurchases();
-        processPurchases.generateListOfPurchases(purchasesFromFile);
-        processPurchases.calculateTotalTaxes();
-        assertThat(processPurchases.getTotalTax(), is(new BigDecimal(1.50).setScale(decimalPlaces,BigDecimal.ROUND_HALF_UP)));
+        Basket basket = new Basket();
+        basket.generateListOfPurchases(purchasesFromFile);
+        basket.calculateTotalTaxes();
+        assertThat(basket.getTotalTax(), is(new BigDecimal(1.50).setScale(decimalPlaces,BigDecimal.ROUND_HALF_UP)));
 
         List<String> purchasesFromFile2 = new ArrayList<String>();
         purchasesFromFile2.add(PURCHASE7);
         purchasesFromFile2.add(PURCHASE8);
         purchasesFromFile2.add(PURCHASE9);
         purchasesFromFile2.add(PURCHASE10);
-        ProcessPurchases processPurchases2 = new ProcessPurchases();
-        processPurchases2.generateListOfPurchases(purchasesFromFile2);
-        processPurchases2.calculateTotalTaxes();
-        assertThat(processPurchases2.getTotalTax(), is(new BigDecimal(6.70).setScale(decimalPlaces,BigDecimal.ROUND_HALF_UP)));
+        Basket basket2 = new Basket();
+        basket2.generateListOfPurchases(purchasesFromFile2);
+        basket2.calculateTotalTaxes();
+        assertThat(basket2.getTotalTax(), is(new BigDecimal(6.70).setScale(decimalPlaces,BigDecimal.ROUND_HALF_UP)));
     }
 
     @Test
@@ -82,10 +81,10 @@ public class ProcessPurchasesTest{
         purchasesFromFile.add(PURCHASE1);
         purchasesFromFile.add(PURCHASE2);
         purchasesFromFile.add(PURCHASE3);
-        ProcessPurchases processPurchases = new ProcessPurchases();
-        processPurchases.generateListOfPurchases(purchasesFromFile);
-        processPurchases.calculateTotalCost();
-        assertThat(processPurchases.getTotalCost(), is(new BigDecimal(29.83).setScale(decimalPlaces,BigDecimal.ROUND_HALF_UP)));
+        Basket basket = new Basket();
+        basket.generateListOfPurchases(purchasesFromFile);
+        basket.calculateTotalCost();
+        assertThat(basket.getTotalCost(), is(new BigDecimal(29.83).setScale(decimalPlaces,BigDecimal.ROUND_HALF_UP)));
     }
 
     @Test
@@ -94,13 +93,13 @@ public class ProcessPurchasesTest{
         purchasesFromFile.add(PURCHASE1);
         purchasesFromFile.add(PURCHASE2);
         purchasesFromFile.add(PURCHASE3);
-        ProcessPurchases processPurchases = new ProcessPurchases();
+        Basket basket = new Basket();
         File outputFile = new File("src/output/outputTest.txt");
         if(outputFile.exists())
             outputFile.delete();
         outputFile.createNewFile();
         Writer output = new BufferedWriter(new FileWriter(outputFile));
-        processPurchases.writePurchasesToFile(output,purchasesFromFile);
+        basket.writePurchasesToFile(output,purchasesFromFile);
         output.close();
         assertTrue(outputFile.length()> 0);
     }
